@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
+import {LoginService} from 'app/_services/login-service/login.service';
+import {Hero} from 'app/_models/hero';
 //let emailRegex = '/^[1-9]\d{0,2}$/g';
 @Component({
     selector: 'app-login',
@@ -8,18 +10,26 @@ import {Router} from '@angular/router';
     styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-    loginForm : FormGroup;
-    constructor(fb: FormBuilder,private router: Router) {
+    loginForm: FormGroup;
+    loginDet: Hero[];
+    constructor(fb: FormBuilder, private router: Router, private loginService: LoginService) {
         this.loginForm = fb.group({
             'email': [null, Validators.compose([<any> Validators.required])],
             'password': [null, Validators.compose([<any> Validators.required])]
         });
     }
-    submitForm(){
+    submitForm() {
         alert("Successfully logged in.");
-        this.router.navigate(['/dashboard']);
+        this.getLoginDetails();
+        this.router.navigate(['/booking']);
     }
     ngOnInit() {
     }
 
+    getLoginDetails(): void {
+        this.loginService.getLoginDetails().then(
+            response =>
+                this.loginDet = response
+        );
+    }
 }

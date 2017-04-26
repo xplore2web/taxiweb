@@ -17,6 +17,13 @@ import {HeroService} from 'app/_services/Hero-service/Hero.service';
 import {DashService} from 'app/_services/dashboard-service/dash.service';
 import { EmployeeComponent } from './_components/employee/employee.component';
 import { DashboardComponent } from './_components/dashboard/dashboard.component';
+import {LoginService} from 'app/_services/login-service/login.service';
+import { DashboardHeaderComponent } from './_components/dashboard-header/dashboard-header.component';
+import { BookingComponent } from './_components/booking/booking.component';
+import { TicketsearchComponent } from './_components/ticketsearch/ticketsearch.component';
+import { DestinationComponent } from './_components/destination/destination.component';
+import { DriverinfoComponent } from './_components/driverinfo/driverinfo.component';
+import { ReportsComponent } from './_components/reports/reports.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +36,13 @@ import { DashboardComponent } from './_components/dashboard/dashboard.component'
     HomepageComponent,
     OrderComponent,
     EmployeeComponent,
-    DashboardComponent
+    DashboardComponent,
+    DashboardHeaderComponent,
+    BookingComponent,
+    TicketsearchComponent,
+    DestinationComponent,
+    DriverinfoComponent,
+    ReportsComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +51,7 @@ import { DashboardComponent } from './_components/dashboard/dashboard.component'
     HttpModule,
     routing
   ],
-  providers: [Http,HttpTestService,HeroService,DashService],
+  providers: [Http, HttpTestService, HeroService, DashService, LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
