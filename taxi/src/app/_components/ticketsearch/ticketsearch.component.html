@@ -8,7 +8,11 @@
                     <label>Ticket Id</label>
                 </div>
                 <div class="agileemailinfo-input wthreeinput">
-                    <input class="top" type="text" [(ngModel)]="from" name="from" placeholder="from" required="">
+                    <input class="top" type="text" [(ngModel)]="bticketsearch.id" name="from" placeholder="" required="">
+               
+               </div>
+            <div class="aitssubmitw3ls">
+                    <input type="submit" name="submit" (click) = "submitForm(bticketsearch)"  value="CHECK">
                 </div>
             </div>
         </form>
